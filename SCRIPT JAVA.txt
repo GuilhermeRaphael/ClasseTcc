@@ -1,3 +1,7 @@
+create database classe_tcc
+
+use classe_tcc
+
 CREATE TABLE Usuario (
   idUsuario INT PRIMARY KEY IDENTITY,
   emailUsuario VARCHAR(50) NOT NULL,
