@@ -1,18 +1,19 @@
-CREATE TABLE Locador (
-  idLocador INT PRIMARY KEY IDENTITY,
-  nomeLocador VARCHAR(50) NOT NULL,
-  cpfLocador CHAR(11) NOT NULL,
-  emailLocador VARCHAR(60),
-  telefoneLocador VARCHAR(15),
-  senhaLocador VARCHAR(50) NOT NULL
+CREATE TABLE Usuario (
+  idUsuario INT PRIMARY KEY IDENTITY,
+  emailUsuario VARCHAR(50) NOT NULL,
+  senhaUsuario CHAR(11) NOT NULL,
+  dataCadastroUsuario VARCHAR(60),
+  statusLogin VARCHAR(15),
+  TipoUsuario VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE Requerimento (
-  idRequisito INT PRIMARY KEY IDENTITY,
-  nomeRequisito VARCHAR(60) NOT NULL,
-  descRequisito TEXT,
+  idRequerimento INT PRIMARY KEY IDENTITY,
+  nomeRequerimento VARCHAR(60) NOT NULL,
+  descRequerimento TEXT,
   statusRequerimento VARCHAR(20),
-  idLocador INT NOT NULL,
-  nomeLocador VARCHAR(50),
-  FOREIGN KEY (idLocador) REFERENCES Locador(idLocador)
+  idLocacao INT NOT NULL,
+  idTipoRequerimento INT NOT NULL,
+  idUsuario INT,
+  FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario)
 );
