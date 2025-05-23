@@ -12,22 +12,28 @@ import lombok.Setter;
 
 public class Requerimento {
 
-    @Column(name = "idRequisito")
+    @Column(name = "idRequerimento")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "nomeRequisito")
+    @Column(name = "nomeRequerimento")
     private String nome;
 
-    @Column(name = "descRequisito")
+    @Column(name = "descRequerimento")
     private String descricao;
 
     @Column(name = "statusRequerimento")
     private String status;
 
+    @Column(name = "idLocacao")
+    private int idLoc;
+
+    @Column(name = "idTipoRequerimento")
+    private int TipoRequerimento;
+
     @ManyToOne
-    @JoinColumn(name = "idLocador")
-    private Locador locador;
+    @JoinColumn(name = "idUsuario")
+    private Usuario usuario;
 
 }
